@@ -49,3 +49,8 @@ export const NavMenu = styled.div`
     display: none;
   }
 `;
+export const Avatar = styled.div`
+  display: flex;
+  allign-item: right;
+  position: right;
+`;

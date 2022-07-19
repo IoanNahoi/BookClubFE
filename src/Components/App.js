@@ -4,15 +4,23 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/login.js";
 import Register from "./pages/Register/register";
 import FirstPage from "./pages/firstPage/FirstPage";
+import Form from "./pages/Register/form";
+import LoginForm from "./pages/Login/loginForm";
 import NavBar from "./NavBar/navBar.js";
+import MainPage from "./pages/MainPage/mainPage";
+import AddBook from "./pages/addBook/addBook";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<FirstPage />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/Login" element={<LoginForm />} />
+        <Route path="/Register" element={<Form />} />
+        <Route path="/Addbook" element={<AddBook />} />
+        <Route path="/Borrrowbook" />
+        <Route path="/Availablebooks" />
+        <Route path="/MainPage" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
   );
