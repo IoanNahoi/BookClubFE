@@ -14,68 +14,68 @@ const Register = ({ submitForm }) => {
       {/* <div className="navbar">
         <NavBar />
       </div> */}
-      <div className="form-content-right">
-        <form onSubmit={handleSubmit} className="form" noValidate>
+      <div className="form-content-right-register">
+        <form onSubmit={handleSubmit} className="form-register" noValidate>
           <h1>Create you account!</h1>
-          <div className="form-inputs">
-            <label className="form-label">Username</label>
+          <div className="form-inputs-register">
+            <label className="form-label-register">Username</label>
             <input
               id="username"
               type="text"
               name="username"
-              classname="form-input"
+              className="form-input-register"
               placeholder="Enter your username"
               value={values.username}
               onChange={handleChange}
             />
             {errors.username && <p>{errors.username}</p>}
           </div>
-          <div className="form-inputs">
-            <label className="form-label">Password</label>
+          <div className="form-inputs-register">
+            <label className="form-label-register">Password</label>
             <input
               id="password"
               type="password"
               name="password"
-              classname="form-input"
+              className="form-input-register"
               placeholder="Enter your password"
               value={values.password}
               onChange={handleChange}
             />
             {errors.password && <p>{errors.password}</p>}
           </div>
-          <div className="form-inputs">
-            <label className="form-label">Email</label>
+          <div className="form-inputs-register">
+            <label className="form-label-register">Email</label>
             <input
               id="email"
               type="email"
               name="email"
-              classname="form-input"
+              className="form-input-register"
               placeholder="Enter your email"
               value={values.email}
               onChange={handleChange}
             />
             {errors.email && <p>{errors.email}</p>}
           </div>
-          <div className="form-inputs">
-            <label className="form-label">FirstName</label>
+          <div className="form-inputs-register">
+            <label className="form-label-register">FirstName</label>
             <input
               id="firstname"
               type="text"
               name="firstname"
-              classname="form-input"
+              className="form-input-register"
               placeholder="Enter your First Name"
               value={values.firstname}
               onChange={handleChange}
             />
             {errors.firstname && <p>{errors.firstname}</p>}
           </div>
-          <div className="form-inputs">
-            <label className="form-label">Last name </label>
+          <div className="form-inputs-register">
+            <label className="form-label-register">Last name </label>
             <input
               id="lastname"
               type="text"
               name="lastname"
-              classname="form-input"
+              className="form-input-register"
               placeholder="Enter your last name"
               value={values.lastname}
               onChange={handleChange}

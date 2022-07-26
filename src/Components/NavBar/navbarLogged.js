@@ -7,18 +7,10 @@ const NavBarLogged = () => {
       <Nav>
         <Bars />
         <NavMenu>
-          <NavLink to="/MainPage" activeStyle>
-            Home
-          </NavLink>
-          <NavLink to="/Addbook" activeStyle>
-            Add book
-          </NavLink>
-          <NavLink to="/Borrrowbook" activeStyle>
-            Borrow Book
-          </NavLink>
-          <NavLink to="/Availablebooks" activeStyle>
-            Available Books
-          </NavLink>
+          <NavLink to="/MainPage">Home</NavLink>
+          <NavLink to="/Addbook">Add book</NavLink>
+          <NavLink to="/Borrrowbook">Borrow Book</NavLink>
+          <NavLink to="/Availablebooks">Available Books</NavLink>
         </NavMenu>
         {/* <Avatar>H</Avatar> */}
       </Nav>

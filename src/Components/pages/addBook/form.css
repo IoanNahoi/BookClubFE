@@ -52,13 +52,13 @@
     color: #fff;
 }
 
-.form-content-right-register {
+.form-content-right {
     border-radius: 0 10px 10px 0;
     position: relative;
     background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
 }
 
-.form-register {
+.form {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -71,15 +71,15 @@
     align-items: center;
 }
 
-.form-register h1 {
+.form h1 {
     font-size: 1rem;
-    text-align: center;
+    text-align: start;
     width: 80%;
     margin-bottom: 1rem;
     color: #fff;
 }
 
-.form-inputs-register {
+.form-inputs {
     margin-bottom: 0.5rem;
     width: 80%;
 }
@@ -90,14 +90,14 @@
     color: #f00e0e;
 }
 
-.form-label-register {
+.form-label {
     display: inline-block;
     font-size: 0.8rem;
     margin-bottom: 6px;
     color: #fff;
 }
 
-.form-input-register {
+.form-input {
     display: block;
     padding-left: 10px;
     outline: none;
@@ -147,6 +147,7 @@
     color: #27cdff;
     font-weight: 600;
 }
-.navbar{
-position: top !important;
+
+.navbar {
+    position: top !important;
 }

@@ -1,37 +1,53 @@
 import React from "react";
-import NavBarLogged from "../../NavBar/navbarLogged";
-
-const AddBook = () => {
+import AddBookUseForm from "./addBookUseForm";
+import AddBookValidation from "./addBookValidation";
+import "./form.css";
+const AddBook = ({ submitForm }) => {
+  const { handleChange, values, handleSubmit, errors } = AddBookUseForm(
+    submitForm,
+    AddBookValidation
+  );
   return (
     <>
-      <NavBarLogged />
-      <div className="form-content">
-        <form className="form" noValidate>
+      <div className="form-content-right">
+        <form onSubmit={handleSubmit} className="form" noValidate>
+          <h1>Add a book!</h1>
           <div className="form-inputs">
-            <label className="form-labels">Title</label>
+            <label className="form-label">Title</label>
             <input
               id="title"
               type="text"
               name="title"
-              placeholder="Intoduce book title"
+              className="form-input"
+              placeholder="Introduce book title"
+              value={values.title}
+              onChange={handleChange}
             />
+            {errors.title && <p>{errors.title}</p>}
           </div>
           <div className="form-inputs">
-            <label className="form-labels">Author</label>
+            <label className="form-label">Author</label>
             <input
-              id="Author"
+              id="author"
               type="text"
-              name="Author"
-              placeholder="Intoduce book Author"
+              name="author"
+              className="form-input"
+              placeholder="Introduce book Author"
+              value={values.author}
+              onChange={handleChange}
             />
+            {errors.author && <p>{errors.author}</p>}
           </div>
           <div className="form-inputs">
-            <label className="form-labels">Description</label>
+            <label className="form-label">Description</label>
             <input
-              id="Description"
+              id="description"
               type="text"
-              name="Description"
-              placeholder="Intoduce book Description"
+              name="description"
+              className="form-input"
+              placeholder="Introduce book description"
+              value={values.description}
+              onChange={handleChange}
             />
           </div>
           <button className="form-input-btn" type="submit">

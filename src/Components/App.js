@@ -9,6 +9,8 @@ import LoginForm from "./pages/Login/loginForm";
 import NavBar from "./NavBar/navBar.js";
 import MainPage from "./pages/MainPage/mainPage";
 import AddBook from "./pages/addBook/addBook";
+import FormAddBook from "./pages/addBook/formAddBook";
+import Availablebooks from "./pages/availableBooks/availableBooks";
 
 export default function App() {
   return (
@@ -17,9 +19,9 @@ export default function App() {
         <Route path="/" element={<FirstPage />} />
         <Route path="/Login" element={<LoginForm />} />
         <Route path="/Register" element={<Form />} />
-        <Route path="/Addbook" element={<AddBook />} />
+        <Route path="/Addbook" element={<FormAddBook />} />
         <Route path="/Borrrowbook" />
-        <Route path="/Availablebooks" />
+        <Route path="/Availablebooks" element={<Availablebooks />} />
         <Route path="/MainPage" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
