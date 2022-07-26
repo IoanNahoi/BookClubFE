@@ -31,12 +31,12 @@ export default function Availablebooks() {
   const [title, setTitle] = React.useState("");
   const handleSubmit = (title) => {
     setTitle(title);
-    console.log(title + " " + period);
+    // console.log(title + " " + period);
     BorrowUseForm(period, title);
   };
 
   const handleChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setPeriod(event.target.value);
     // setTitle(title);
   };
