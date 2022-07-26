@@ -9,7 +9,7 @@ const NavBarLogged = () => {
         <NavMenu>
           <NavLink to="/MainPage">Home</NavLink>
           <NavLink to="/Addbook">Add book</NavLink>
-          <NavLink to="/Borrrowbook">Borrow Book</NavLink>
+          <NavLink to="/Borrowedbooks">Borrowed Books</NavLink>
           <NavLink to="/Availablebooks">Available Books</NavLink>
         </NavMenu>
         {/* <Avatar>H</Avatar> */}
