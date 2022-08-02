@@ -16,7 +16,7 @@ const Form = () => {
       <div className="form-container">
         <span className="close-btn">×</span>
         <div className="form-content-left">
-          <img className="form-img" src="/book.jpg" alt="book" />
+          <img className="form-img" src="/book.jpeg" alt="book" />
         </div>
         {!isSubmitted ? <Register submitForm={submitForm} /> : <FormSuccess />}
       </div>

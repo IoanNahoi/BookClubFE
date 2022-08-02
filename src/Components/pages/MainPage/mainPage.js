@@ -1,10 +1,12 @@
 import NavBarLogged from "../../NavBar/navbarLogged";
-
+import MenuAppBar from "../../NavBar/MenuAppBar";
+import Banner from "../../banner/banner.js";
+import { SliderData } from "../../banner/data.js";
 const MainPage = () => {
   return (
     <>
-      <NavBarLogged />
-      <p>Salut si bine ai venit la BookClub!</p>
+      <MenuAppBar />
+      <Banner slides={SliderData} />
     </>
   );
 };

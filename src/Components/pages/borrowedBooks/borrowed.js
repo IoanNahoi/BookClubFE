@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBarLogged from "../../NavBar/navbarLogged";
+import MenuAppBar from "../../NavBar/MenuAppBar";
+
 import {
   Button,
   Card,
@@ -66,7 +68,7 @@ const Borrowed = () => {
   // console.log(querry);
   return (
     <>
-      <NavBarLogged />
+      <MenuAppBar />
       <h1>Books I borrowed!</h1>
       <input
         type="text"

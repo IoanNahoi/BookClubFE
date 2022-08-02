@@ -12,6 +12,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
+import MenuAppBar from "../../NavBar/MenuAppBar";
+
 import NavBarLogged from "../../NavBar/navbarLogged";
 import "./availableBooks.css";
 import BorrowUseForm from "./borrow";
@@ -50,7 +52,7 @@ export default function Availablebooks() {
   };
   return (
     <div>
-      <NavBarLogged />
+      <MenuAppBar />
       <h1>Available books</h1>
       <input
         type="text"

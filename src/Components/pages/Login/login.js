@@ -3,36 +3,36 @@ import NavBar from "../../NavBar/navBar.js";
 import useFormLogin from "./loginUseForm.js";
 import loginValidation from "./loginValidation.js";
 import "./login.css";
+// import "../Register/form.css";
 export default function Login({ submitForm }) {
   const { handleChange, values, handleSubmit, errors } = useFormLogin(
     submitForm,
     loginValidation
   );
   return (
-    <div>
-      <NavBar />
-      <div className="form-content">
-        <form onSubmit={handleSubmit} className="form" noValidate>
-          <div className="form-inputs">
-            <label className="form-labels">Username</label>
+    <>
+      <div className="form-content-right-login">
+        <form onSubmit={handleSubmit} className="form-login" noValidate>
+          <div className="form-input-login">
+            <label className="form-label-login">Username</label>
             <input
               id="username"
               type="text"
               name="username"
-              // className="form-input-login"
+              className="form-inputs-login"
               placeholder="Enter your username"
               value={values.username}
               onChange={handleChange}
             />
             {errors.username && <p>{errors.username}</p>}
           </div>
-          <div className="form-inputs">
-            <label className="form-labels">Password</label>
+          <div className="form-input-login">
+            <label className="form-label-login">Password</label>
             <input
               id="password"
               type="password"
               name="password"
-              // className="form-input-login"
+              className="form-inputs-login"
               placeholder="Enter your password"
               value={values.password}
               onChange={handleChange}
@@ -47,6 +47,6 @@ export default function Login({ submitForm }) {
           </span>
         </form>
       </div>
-    </div>
+    </>
   );
 }

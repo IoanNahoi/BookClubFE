@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "./form.css";
+import "./login.css";
 import Login from "./login";
 import FirstPage from "../firstPage/FirstPage";
 import NavBar from "../../NavBar/navBar";
@@ -11,7 +11,19 @@ const LoginForm = () => {
   function submitForm() {
     setIsSubmitted(true);
   }
-  return <>{!isSubmitted ? <Login submitForm={submitForm} /> : <MainPage />}</>;
+  return (
+    <>
+      <NavBar />
+      <div className="form-container">
+        <span className="close-btn">×</span>
+        <div className="form-content-left">
+          <img className="form-img" src="/book.jpeg" alt="book" />
+        </div>
+
+        {!isSubmitted ? <Login submitForm={submitForm} /> : <MainPage />}
+      </div>
+    </>
+  );
 };
 
 export default LoginForm;

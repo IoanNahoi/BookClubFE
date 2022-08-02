@@ -1,8 +1,6 @@
 import React from "react";
-import NavBar from "../../NavBar/navBar";
 import registerUserForm from "./registerUseForm";
 import registerValidation from "./registerValidation";
-import Form from "./form";
 import "./form.css";
 const Register = ({ submitForm }) => {
   const { handleChange, values, handleSubmit, errors } = registerUserForm(
@@ -11,9 +9,6 @@ const Register = ({ submitForm }) => {
   );
   return (
     <>
-      {/* <div className="navbar">
-        <NavBar />
-      </div> */}
       <div className="form-content-right-register">
         <form onSubmit={handleSubmit} className="form-register" noValidate>
           <h1>Create you account!</h1>
