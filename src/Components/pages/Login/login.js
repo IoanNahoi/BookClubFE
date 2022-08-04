@@ -42,7 +42,7 @@ export default function Login({ submitForm }) {
           <button className="form-input-btn" type="submit">
             Sign in
           </button>
-          <span className="form-input-register">
+          <span className="form-input-login">
             Don't have an account? Register <a href="Register"> here</a>
           </span>
         </form>

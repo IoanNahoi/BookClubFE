@@ -37,6 +37,8 @@ export default function MenuAppBar() {
     } else if (click === "logout") {
       window.localStorage.clear();
       window.location.assign("/");
+    } else if (click === "waiting") {
+      window.location.assign("/WaitingList");
     }
   };
   const returnMain = () => {
@@ -115,6 +117,9 @@ export default function MenuAppBar() {
               >
                 <MenuItem onClick={() => handleClose("borrowed")}>
                   Borrowed Books
+                </MenuItem>
+                <MenuItem onClick={() => handleClose("waiting")}>
+                  Waiting List
                 </MenuItem>
                 <MenuItem onClick={() => handleClose("logout")}>
                   Logout

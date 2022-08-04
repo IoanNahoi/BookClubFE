@@ -29,14 +29,14 @@ const Borrowed = () => {
     fetch(`http://localhost:8080/borrow/whatIBorrowed?idUser=${user.id}`)
       .then((res) => res.json())
       .then((result) => {
-        setBooks(result);
+        setBooksFromMe(result);
       });
   }, []);
   useEffect(() => {
     fetch(`http://localhost:8080/borrow/seeWhoBorrowed?id=${user.id}`)
       .then((res) => res.json())
       .then((result) => {
-        setBooksFromMe(result);
+        setBooks(result);
       });
   }, []);
   const handleChange = (event) => {
