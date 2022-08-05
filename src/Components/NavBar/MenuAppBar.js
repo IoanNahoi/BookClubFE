@@ -39,6 +39,8 @@ export default function MenuAppBar() {
       window.location.assign("/");
     } else if (click === "waiting") {
       window.location.assign("/WaitingList");
+    } else if (click === "mybooks") {
+      window.location.assign("/MyBooks");
     }
   };
   const returnMain = () => {
@@ -120,6 +122,9 @@ export default function MenuAppBar() {
                 </MenuItem>
                 <MenuItem onClick={() => handleClose("waiting")}>
                   Waiting List
+                </MenuItem>
+                <MenuItem onClick={() => handleClose("mybooks")}>
+                  My Books
                 </MenuItem>
                 <MenuItem onClick={() => handleClose("logout")}>
                   Logout
