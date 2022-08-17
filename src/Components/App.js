@@ -14,6 +14,7 @@ import Availablebooks from "./pages/availableBooks/availableBooks";
 import Borrowed from "./pages/borrowedBooks/borrowed";
 import WaitingList from "./pages/waitingList/waitingList";
 import MyBooks from "./pages/myBooks/myBooks";
+import AllBooks from "./pages/allBooks/allBooks";
 export default function App() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/WaitingList" element={<WaitingList />} />
         <Route path="/MyBooks" element={<MyBooks />} />
+        <Route path="/AllBooks" element={<AllBooks />} />
       </Routes>
     </BrowserRouter>
   );

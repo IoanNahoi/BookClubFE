@@ -27,15 +27,9 @@ const NavBar = () => {
       <Nav>
         <Bars />
         <NavMenu>
-          <NavLink to="/" activeStyle>
-            Home
-          </NavLink>
-          <NavLink to="/Login" activeStyle>
-            Login
-          </NavLink>
-          <NavLink to="/Register" activeStyle>
-            Register
-          </NavLink>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/Login">Login</NavLink>
+          <NavLink to="/Register">Register</NavLink>
         </NavMenu>
       </Nav>
     </>

@@ -1,3 +1,5 @@
+import FormSuccess from "./FormSucces";
+
 export default function Account(values) {
   const account = {
     username: values.username,
@@ -11,5 +13,12 @@ export default function Account(values) {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(account),
+  }).then((res) => {
+    if (res.status === 200) {
+      <FormSuccess />;
+    } else {
+      alert("Something went wrong,try again!");
+      window.location.reload();
+    }
   });
 }

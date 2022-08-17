@@ -18,7 +18,9 @@ const Form = () => {
         <div className="form-content-left">
           <img className="form-img" src="/book.jpeg" alt="book" />
         </div>
-        {!isSubmitted ? <Register submitForm={submitForm} /> : <FormSuccess />}
+        {/* {!isSubmitted ? <Register submitForm={submitForm} /> : <FormSuccess />}
+         */}
+        <Register submitForm={submitForm} />
       </div>
     </>
   );

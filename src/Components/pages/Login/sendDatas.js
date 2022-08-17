@@ -16,7 +16,7 @@ export default function sendDatas(values) {
   ).then((res) => {
     if (res.status === 200) {
       //   alert("ok");
-      //   console.log(res.json());
+      console.log(res.status);
       res.json().then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
       });

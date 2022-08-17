@@ -19,7 +19,7 @@ import {
 export default function MenuAppBar() {
   const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
-  const navItems = ["Home", "Add Book", "Available Books"];
+  const navItems = ["Home", "Add Book", "All books", "Available Books"];
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -54,6 +54,8 @@ export default function MenuAppBar() {
       window.location.assign("/Availablebooks");
     } else if (click === "Home") {
       window.location.assign("/MainPage");
+    } else if (click === "Alll Books") {
+      window.location.assign("/AllBooks");
     }
   };
   return (
