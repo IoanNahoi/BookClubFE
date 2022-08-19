@@ -16,15 +16,18 @@ import {
 } from "@mui/material";
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
+
   const [querry, setQuerry] = useState("");
+  const user = JSON.parse(window.localStorage.getItem("user"));
 
   useEffect(() => {
-    fetch(`localhost:8080/book`)
+    fetch(`http://localhost:8080/wishlist/available`)
       .then((res) => res.json())
       .then((result) => {
         setBooks(result);
       });
   }, []);
+
   const settings = {
     dots: true,
     infinite: false,
@@ -33,20 +36,20 @@ const AllBooks = () => {
     slidesToScroll: 4,
   };
   const handleSubmit = (title) => {
-    //  fetch(
-    //    `http://localhost:8080/borrow/extendPeriod?days=${period}&idUser=${user.id}&bookName=${title}`,
-    //    {
-    //      method: "PUT",
-    //    }
-    //  ).then((res) => {
-    //    if (res.status !== 200) {
-    //      alert("Something went wrong!");
-    //      window.location.href("/MainPage");
-    //    } else if (res.status === 200) {
-    //      alert("Period extended!");
-    //      window.location.reload();
-    //    }
-    //  });
+    fetch(
+      `http://localhost:8080/wishlist/addwishlist?idUser=${user.id}&title=${title}`,
+      {
+        method: "POST",
+      }
+    ).then((res) => {
+      if (res.status !== 200) {
+        alert("Something went wrong!");
+        window.location.href("/MainPage");
+      } else if (res.status === 200) {
+        alert("Succesfully added the book to wish list!");
+        window.location.reload();
+      }
+    });
   };
 
   return (
@@ -63,14 +66,12 @@ const AllBooks = () => {
         <Slider {...settings}>
           {books
             .filter((book) =>
-              book.borrowed_book.title
-                .toLowerCase()
-                .includes(querry.toLowerCase())
+              book.title.toLowerCase().includes(querry.toLowerCase())
             )
             .map((e) => (
               // getBook(e.borrowed_book.title),
-              <Card sx={{ maxWidth: 400 }} key={e.id_borrow}>
-                {console.log(e.id_borrow)}
+              <Card sx={{ maxWidth: 400 }} key={e.id}>
+                {console.log(e.id)}
                 <CardMedia
                   component="img"
                   alt="book"
@@ -79,10 +80,10 @@ const AllBooks = () => {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {e.borrowed_book.title}
+                    {e.title}
                   </Typography>
                   <Typography variant="h7" component="div">
-                    {"Must return until " + e.date_when_return}
+                    {"Author: " + e.author}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     {"Description:\n" + e.description}
@@ -90,7 +91,7 @@ const AllBooks = () => {
                 </CardContent>
                 <CardActions>
                   <Button
-                    onClick={() => handleSubmit(e.borrowed_book.title)}
+                    onClick={() => handleSubmit(e.title)}
                     size="small"
                     key={e.id}
                   >

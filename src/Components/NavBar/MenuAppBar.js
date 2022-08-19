@@ -54,7 +54,7 @@ export default function MenuAppBar() {
       window.location.assign("/Availablebooks");
     } else if (click === "Home") {
       window.location.assign("/MainPage");
-    } else if (click === "Alll Books") {
+    } else if (click === "All books") {
       window.location.assign("/AllBooks");
     }
   };
