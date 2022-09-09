@@ -14,20 +14,30 @@ import {
 const MyBooks = () => {
   const [books, setBooks] = useState([]);
   const user = JSON.parse(window.localStorage.getItem("user"));
+  const jwt = window.localStorage.getItem("jwt");
+
   const [wishListBooks, setWishListBooks] = useState([]);
 
   const [querry, setQuerry] = useState("");
   const [title, setTitle] = React.useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/book/myBooks?idOwner=${user.id}`)
+    fetch(`http://localhost:8080/book/myBooks?idOwner=${user}`, {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         setBooks(result);
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:8080/wishlist/mywishlist?idUser=${user.id}`)
+    fetch(`http://localhost:8080/wishlist/mywishlist?idUser=${user}`, {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         setWishListBooks(result);
@@ -35,7 +45,7 @@ const MyBooks = () => {
   }, []);
   const handleSubmitDelete = (title) => {
     setTitle(title);
-    DeleteWishList(user.id, title);
+    DeleteWishList(user, title);
   };
   console.log(wishListBooks);
   const settings = {
@@ -86,7 +96,7 @@ const MyBooks = () => {
             ))}
         </Slider>
       </div>
-      <h1>My Books!</h1>
+      <h1>WishList</h1>
       <input
         type="text"
         placeholder="Search by title"

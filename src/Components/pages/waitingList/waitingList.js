@@ -18,9 +18,14 @@ const WaitingList = () => {
   const [mylistbooks, setmylistBooks] = useState([]);
 
   const user = JSON.parse(window.localStorage.getItem("user"));
+  const jwt = window.localStorage.getItem("jwt");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/book/unavailable?id=${user.id}`)
+    fetch(`http://localhost:8080/book/unavailable?id=${user}`, {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         setBooks(result);
@@ -28,7 +33,11 @@ const WaitingList = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/book/mywaitinglist?id=${user.id}`)
+    fetch(`http://localhost:8080/book/mywaitinglist?id=${user}`, {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         setmylistBooks(result);
@@ -41,11 +50,11 @@ const WaitingList = () => {
 
   const handleSubmit = (title) => {
     setTitle(title);
-    SendWaitingDatas(user.id, title);
+    SendWaitingDatas(user, title);
   };
   const handleSubmitDelete = (title) => {
     setTitle(title);
-    SendDeleteDatas(user.id, title);
+    SendDeleteDatas(user, title);
   };
 
   const handleChange = (event) => {

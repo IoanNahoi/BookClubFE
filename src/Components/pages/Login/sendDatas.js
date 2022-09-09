@@ -1,17 +1,21 @@
 import { useEffect } from "react";
-
+import decoder from "../../jwtDecoder/decoder";
 export default function sendDatas(values) {
   const account = {
     username: values.username,
     password: values.password,
   };
   console.log(JSON.stringify(account));
+
+  const jwt = decoder();
+  console.log(jwt);
+
   fetch(
-    `http://localhost:8080/users/usernameAndPass?username=${values.username}&password=${values.password}`,
+    `http://localhost:8080/users/login?username=${values.username}&password=${values.password}`,
     {
       method: "GET",
-      // headers: { "Content-type": "application/json" },
-      // body: JSON.stringify(account),
+      headers: { Authorization: `Bearer ${jwt.decoded}` },
+      body: JSON.stringify(account),
     }
   ).then((res) => {
     if (res.status === 200) {

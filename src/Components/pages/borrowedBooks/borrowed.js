@@ -24,16 +24,25 @@ const Borrowed = () => {
   const [booksFromMe, setBooksFromMe] = useState([]);
   const [querry, setQuerry] = useState("");
   const [myBooksQuerry, setMyBooksQuerry] = useState("");
+  const jwt = window.localStorage.getItem("jwt");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/borrow/whatIBorrowed?idUser=${user.id}`)
+    fetch(`http://localhost:8080/borrow/whatIBorrowed?idUser=${user}`, {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         setBooksFromMe(result);
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:8080/borrow/seeWhoBorrowed?id=${user.id}`)
+    fetch(`http://localhost:8080/borrow/seeWhoBorrowed?id=${user}`, {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         setBooks(result);
@@ -44,9 +53,12 @@ const Borrowed = () => {
   };
   const handleSubmit = (title) => {
     fetch(
-      `http://localhost:8080/borrow/extendPeriod?days=${period}&idUser=${user.id}&bookName=${title}`,
+      `http://localhost:8080/borrow/extendPeriod?days=${period}&idUser=${user}&bookName=${title}`,
       {
         method: "PUT",
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
       }
     ).then((res) => {
       if (res.status !== 200) {

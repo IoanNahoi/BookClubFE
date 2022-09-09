@@ -12,7 +12,12 @@ export default function Login({ submitForm }) {
   return (
     <>
       <div className="form-content-right-login">
-        <form onSubmit={handleSubmit} className="form-login" noValidate>
+        <form
+          onSubmit={handleSubmit}
+          className="form-login"
+          noValidate
+          action="/login"
+        >
           <div className="form-input-login">
             <label className="form-label-login">Username</label>
             <input

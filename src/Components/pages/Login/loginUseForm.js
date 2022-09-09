@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import decoder from "../../jwtDecoder/decoder";
 // import "./form.css";
 import sendDatas from "./sendDatas";
 const useFormLogin = (callback, validate) => {
@@ -22,7 +23,8 @@ const useFormLogin = (callback, validate) => {
 
     setErrors(validate(values));
     setIsSubmitting(true);
-    sendDatas(values);
+    // sendDatas(values);
+    decoder(values);
   };
 
   useEffect(() => {

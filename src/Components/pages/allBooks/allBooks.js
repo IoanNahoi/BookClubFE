@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MenuAppBar from "../../NavBar/MenuAppBar";
 import Slider from "react-slick";
+import axios from "axios";
 
 import {
   Button,
@@ -19,12 +20,20 @@ const AllBooks = () => {
 
   const [querry, setQuerry] = useState("");
   const user = JSON.parse(window.localStorage.getItem("user"));
+  const jwt = window.localStorage.getItem("jwt");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/wishlist/available`)
-      .then((res) => res.json())
-      .then((result) => {
-        setBooks(result);
+    axios
+      .get("http://localhost:8080/wishlist/available", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      })
+      .then((response) => {
+        setBooks(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
       });
   }, []);
 
@@ -37,9 +46,10 @@ const AllBooks = () => {
   };
   const handleSubmit = (title) => {
     fetch(
-      `http://localhost:8080/wishlist/addwishlist?idUser=${user.id}&title=${title}`,
+      `http://localhost:8080/wishlist/addwishlist?idUser=${user}&title=${title}`,
       {
         method: "POST",
+        headers: { Authorization: `Bearer ${jwt}` },
       }
     ).then((res) => {
       if (res.status !== 200) {
@@ -52,8 +62,10 @@ const AllBooks = () => {
     });
   };
 
+  console.log(books);
   return (
     <>
+      {/* {getBooks()} */}
       <MenuAppBar />
       <h1>All Books</h1>
       <input

@@ -23,9 +23,14 @@ import Slider from "react-slick";
 export default function Availablebooks() {
   const [books, setBooks] = useState([]);
   const user = JSON.parse(window.localStorage.getItem("user"));
+  const jwt = window.localStorage.getItem("jwt");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/book/available?id=${user.id}`)
+    fetch(`http://localhost:8080/book/available?id=${user}`, {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         setBooks(result);
